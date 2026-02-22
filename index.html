@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Spelunky</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen">
+    <canvas id="loading-bg-canvas"></canvas>
+    <div id="loading-content">
+      <div id="loading-logo-wrap">
+        <div id="loading-torch-left" class="torch-anim"></div>
+        <div id="loading-title-text">SPELUNKY</div>
+        <div id="loading-torch-right" class="torch-anim"></div>
+      </div>
+      <div id="loading-bar-outer">
+        <div id="loading-bar-inner"></div>
+        <div id="loading-bar-shine"></div>
+      </div>
+      <div id="loading-status">Initializing...</div>
+      <div id="loading-gems-row">
+        <span class="ld-gem red"></span>
+        <span class="ld-gem blue"></span>
+        <span class="ld-gem green"></span>
+        <span class="ld-gem yellow"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPLASH: @sage.stock -->
+  <div id="splash-sage" class="splash hidden">
+    <div class="splash-inner">
+      <div class="splash-madeby">Made by</div>
+      <div class="splash-brand">@sage.stock</div>
+    </div>
+  </div>
+
+  <!-- SPLASH: freaks-shop.site -->
+  <div id="splash-freaks" class="splash hidden">
+    <div class="splash-inner">
+      <div class="splash-brand splash-freaks-name">freaks-shop.site</div>
+    </div>
+  </div>
+
+  <!-- SPLASH: Mossmouth credit -->
+  <div id="splash-mossmouth" class="splash hidden">
+    <div class="splash-inner">
+      <div class="splash-orig">Original Game</div>
+      <div class="splash-credit">Credit to</div>
+      <div class="splash-moss">Mossmouth©</div>
+    </div>
+  </div>
+
+  <!-- CONTROLS SCREEN -->
+  <div id="controls-screen" class="hidden">
+    <canvas id="controls-bg"></canvas>
+    <div id="controls-box">
+      <div id="controls-title">CONTROLS</div>
+      <div id="controls-grid">
+        <div class="ctrl-row"><span class="ctrl-key">A / D</span><span class="ctrl-desc">Move Left / Right</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">SPACE</span><span class="ctrl-desc">Jump</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">RIGHT SHIFT</span><span class="ctrl-desc">Sprint</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">S</span><span class="ctrl-desc">Look Down / Duck</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">C</span><span class="ctrl-desc">Whip / Attack</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">F</span><span class="ctrl-desc">Throw Bomb</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">S + F</span><span class="ctrl-desc">Place Bomb</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">G</span><span class="ctrl-desc">Throw Rope (Climb: W/S)</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">W / S</span><span class="ctrl-desc">Climb Rope / Ladder</span></div>
+        <div class="ctrl-row"><span class="ctrl-key">ENTER</span><span class="ctrl-desc">Enter Door / Next Level</span></div>
+      </div>
+      <button id="controls-continue-btn">Continue</button>
+    </div>
+  </div>
+
+  <!-- LEVEL COMPLETE SCREEN -->
+  <div id="level-complete-screen" class="hidden">
+    <div id="lc-box">
+      <div id="lc-title">1-1 COMPLETED!</div>
+      <div id="lc-stats">
+        <div class="lc-row"><span class="lc-icon">⏱</span><span id="lc-time">0:00 / 5:15</span></div>
+        <div class="lc-row"><span class="lc-icon lc-money">$</span><span id="lc-score">0 / 9800</span></div>
+      </div>
+      <div id="lc-loot-scroll">
+        <div id="lc-loot-title">Loot</div>
+        <div id="lc-loot-val">0</div>
+      </div>
+      <button id="lc-continue-btn">Continue to Next Level</button>
+    </div>
+  </div>
+
+  <!-- DEATH SCREEN -->
+  <div id="death-screen" class="hidden">
+    <div id="death-box">
+      <div id="death-title">YOU DIED</div>
+      <div id="death-subtitle">The caves claim another victim...</div>
+      <div id="death-stats">
+        <div class="d-stat"><span>Level Reached:</span><span id="d-level">1-1</span></div>
+        <div class="d-stat"><span>Gold Collected:</span><span id="d-gold">$0</span></div>
+      </div>
+      <button id="death-retry-btn">Try Again</button>
+    </div>
+  </div>
+
+  <!-- GAME CANVAS -->
+  <canvas id="game-canvas" class="hidden"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="hud-left">
+      <div id="hud-hearts"><span id="heart-icon">♥</span><span id="hud-hp">4</span></div>
+      <div id="hud-bombs"><span id="bomb-icon">💣</span><span id="hud-bombs-count">4</span></div>
+      <div id="hud-ropes"><span id="rope-icon">🪢</span><span id="hud-ropes-count">4</span></div>
+    </div>
+    <div id="hud-center">
+      <div id="hud-level">1-1</div>
+    </div>
+    <div id="hud-right">
+      <div id="hud-gold"><span id="gold-icon">$</span><span id="hud-gold-count">0</span></div>
+    </div>
+  </div>
+
+  <!-- WATERMARK -->
+  <div id="watermark">freaks-shop.site</div>
+
+  <script src="src/sprites.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/levelgen.js"></script>
+  <script src="src/physics.js"></script>
+  <script src="src/entities.js"></script>
+  <script src="src/player.js"></script>
+  <script src="src/game.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>

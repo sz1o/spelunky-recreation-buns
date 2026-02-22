@@ -1,0 +1,20 @@
+{
+  "name": "spelunky-web",
+  "version": "1.0.0",
+  "description": "Spelunky 1 Xbox 360 web recreation",
+  "scripts": {
+    "dev": "serve . -p 3000",
+    "start": "serve . -p 3000",
+    "build": "echo 'Static build - no compile step needed'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": ["spelunky","game","platformer","cave"],
+  "author": "@sage.stock",
+  "license": "MIT"
+}

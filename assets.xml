@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spelunky-manifest version="1.0" author="sage.stock" credit="Mossmouth©">
+  <meta>
+    <title>Spelunky Web</title>
+    <description>Spelunky 1 Xbox 360 web recreation</description>
+    <site>freaks-shop.site</site>
+  </meta>
+
+  <assets>
+    <!-- All sprites are drawn procedurally via Canvas API in sprites.js -->
+    <sprite-sheet id="player" source="procedural" renderer="sprites.js#drawPlayer"/>
+    <sprite-sheet id="snake"  source="procedural" renderer="sprites.js#drawSnake"/>
+    <sprite-sheet id="bat"    source="procedural" renderer="sprites.js#drawBat"/>
+    <sprite-sheet id="spider" source="procedural" renderer="sprites.js#drawSpider"/>
+    <sprite-sheet id="caveman"source="procedural" renderer="sprites.js#drawCaveman"/>
+
+    <tileset id="cave"   source="procedural" renderer="sprites.js#drawCaveTile"/>
+    <tileset id="ladder" source="procedural" renderer="sprites.js#drawLadder"/>
+    <tileset id="torch"  source="procedural" renderer="sprites.js#drawTorch"/>
+    <tileset id="spikes" source="procedural" renderer="sprites.js#drawSpikes"/>
+
+    <item id="chest"    source="procedural" renderer="sprites.js#drawChest"/>
+    <item id="gem"      source="procedural" renderer="sprites.js#drawGem"/>
+    <item id="gold"     source="procedural" renderer="sprites.js#drawGold"/>
+    <item id="bomb"     source="procedural" renderer="sprites.js#drawBomb"/>
+    <item id="rope"     source="procedural" renderer="sprites.js#drawRope"/>
+    <item id="door"     source="procedural" renderer="sprites.js#drawDoor"/>
+
+    <effect id="explosion"  source="procedural" renderer="sprites.js#drawExplosion"/>
+    <effect id="whip"       source="procedural" renderer="sprites.js#drawWhip"/>
+    <effect id="cobweb"     source="procedural" renderer="sprites.js#drawCobweb"/>
+    <effect id="particle"   source="procedural" renderer="sprites.js#drawParticle"/>
+
+    <!-- Audio: all generated via Web Audio API in audio.js -->
+    <sound id="jump"        source="webaudio" generator="audio.js#playJump"/>
+    <sound id="land"        source="webaudio" generator="audio.js#playLand"/>
+    <sound id="whip"        source="webaudio" generator="audio.js#playWhip"/>
+    <sound id="hit"         source="webaudio" generator="audio.js#playHit"/>
+    <sound id="death"       source="webaudio" generator="audio.js#playDeath"/>
+    <sound id="bomb"        source="webaudio" generator="audio.js#playBomb"/>
+    <sound id="pickup"      source="webaudio" generator="audio.js#playPickup"/>
+    <sound id="gem-pickup"  source="webaudio" generator="audio.js#playGemPickup"/>
+    <sound id="rope-throw"  source="webaudio" generator="audio.js#playRopeThrow"/>
+    <sound id="chest-open"  source="webaudio" generator="audio.js#playChestOpen"/>
+    <sound id="level-done"  source="webaudio" generator="audio.js#playLevelComplete"/>
+    <sound id="enemy-hit"   source="webaudio" generator="audio.js#playEnemyHit"/>
+    <sound id="step"        source="webaudio" generator="audio.js#playStep"/>
+    <sound id="door"        source="webaudio" generator="audio.js#playDoor"/>
+    <music id="caves-theme" source="webaudio" generator="audio.js#playMusic"/>
+  </assets>
+
+  <levels>
+    <world id="mines" levels="4">
+      <theme>cave-brown</theme>
+      <enemies>snake,bat,spider,caveman</enemies>
+      <tiles>solid,ladder,torch,spike,gold-vein</tiles>
+      <items>chest,gem,gold-nugget,bomb,rope</items>
+    </world>
+  </levels>
+
+  <player>
+    <default-character id="spelunky-guy"/>
+    <start-hp>4</start-hp>
+    <start-bombs>4</start-bombs>
+    <start-ropes>4</start-ropes>
+  </player>
+</spelunky-manifest>

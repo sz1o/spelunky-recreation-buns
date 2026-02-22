@@ -1,0 +1,66 @@
+{
+  "game": {
+    "title": "Spelunky",
+    "version": "1.0.0",
+    "originalCredit": "Mossmouth©",
+    "madeBy": "@sage.stock",
+    "site": "freaks-shop.site"
+  },
+  "display": {
+    "tileSize": 40,
+    "targetFPS": 60,
+    "levelCols": 42,
+    "levelRows": 28,
+    "vignetteStrength": 0.65
+  },
+  "player": {
+    "startHp": 4,
+    "startBombs": 4,
+    "startRopes": 4,
+    "walkSpeed": 3.2,
+    "sprintSpeed": 5.8,
+    "jumpPower": -12.5,
+    "climbSpeed": 2.5,
+    "invincibilityFrames": 90,
+    "coyoteFrames": 8,
+    "jumpBufferFrames": 10
+  },
+  "physics": {
+    "gravity": 0.55,
+    "maxFallSpeed": 14,
+    "friction": 0.6
+  },
+  "enemies": {
+    "snake":   {"hp": 1, "speed": 1.8, "damage": 1},
+    "bat":     {"hp": 1, "speed": 2.8, "damage": 1, "wakeRadius": 240},
+    "spider":  {"hp": 1, "damage": 1},
+    "caveman": {"hp": 3, "speed": 2.5, "aggroRadius": 240, "damage": 1}
+  },
+  "items": {
+    "gems": {
+      "red":    {"value": 100, "color": "#ff4466"},
+      "blue":   {"value": 200, "color": "#4488ff"},
+      "green":  {"value": 300, "color": "#44ff88"},
+      "yellow": {"value":  50, "color": "#ffee44"}
+    },
+    "chest": {"gemCount": 3}
+  },
+  "levels": {
+    "totalWorlds": 4,
+    "levelsPerWorld": 4,
+    "bombRadius": 70,
+    "bombFuse": 180
+  },
+  "controls": {
+    "moveLeft":   ["KeyA", "ArrowLeft"],
+    "moveRight":  ["KeyD", "ArrowRight"],
+    "up":         ["KeyW", "ArrowUp"],
+    "down":       ["KeyS", "ArrowDown"],
+    "jump":       ["Space"],
+    "sprint":     ["ShiftRight"],
+    "whip":       ["KeyC"],
+    "rope":       ["KeyG"],
+    "throwBomb":  ["KeyF"],
+    "enterDoor":  ["Enter"]
+  }
+}
